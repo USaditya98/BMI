@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>BMI CALCULATOR</title>
+    <!-- MDB icon -->
+    <link rel="icon" href=" " type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    <!-- Start your project here-->
+    <div class="container ">
+          <div class="text-center text-bold mt-4 mb-8 font-monospace w-100 h1">BMI CALCULATOR</div>
+            <form action=" ">
+                <div class="w-100 d-flex justify-content-center align-items-center mt-4">
+                    <div class="form-outline w-50 mx-2">
+                        <input
+                        class="form-control h1"
+                        id="heightValue"
+                        type="text"
+                        placeholder="Enter Height..."
+                        aria-label="Height"
+                        style="line-height:6rem;font-size: 3rem;"
+                        onkeyup="cal();"
+                        />
+                        <label class="form-label h6" for="formControlReadonly">Height</label>
+                    </div>
+                    <div class="h1 mx-2">
+                        Cm
+                    </div>
+                    <div class="form-outline w-50 mx-2">
+                        <input
+                        class="form-control h1 border-none"
+                        id="weightValue"
+                        type="text"
+                        placeholder="Enter Weight..."
+                        aria-label="Weight"
+                        style="line-height:6rem;font-size: 3rem;"
+                        onkeyup="cal();"
+
+                        />
+                        <label class="form-label h6" for="formControlReadonly">Weight</label>
+                    </div>
+                    <div class="h1 mx-2" >
+                        Kg
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center text-center">
+                    <div class="mx-2 my-5 h1 w-100 " style="font-size: 5rem;" id="result"></div> 
+                </div>
+            </form>
+    </div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript">
+    function cal(){ 
+        var height = document.getElementById('heightValue').value;
+        var weight = document.getElementById('weightValue').value;
+        var heightInMeter = height / 100;
+        var squaredHeight =  heightInMeter * heightInMeter;
+        var bmi = weight / squaredHeight; 
+        document.getElementById('result').innerHTML = bmi.toFixed(2);
+
+        if(bmi > 15 && bmi < 18.5){
+            document.getElementById('result').style.color = 'blue'; 
+            // document.getElementById('resultText').innerHTML = 'Underweight'; 
+        }
+        else if(bmi > 18.5 && bmi <= 25){
+            document.getElementById('result').style.color = 'green'; 
+        } 
+        else if(bmi > 25 && bmi < 40){
+            document.getElementById('result').style.color = 'red'; 
+        }
+        else{
+            document.getElementById('result').style.color = 'black'; 
+
+        } 
+    }
+    </script>
+  </body>
+</html>
